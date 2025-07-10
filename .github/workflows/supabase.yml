@@ -13,4 +13,6 @@ jobs:
       - uses: supabase/setup-cli@v1
         with:
           version: latest
-      - run: supabase functions deploy create-payment-intent --project-ref utjgpehbaarrrhixebil --api-key ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      - run: supabase functions deploy create-payment-intent --project-ref utjgpehbaarrrhixebil
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
