@@ -1,0 +1,16 @@
+name: Deploy Supabase Edge Functions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - run: supabase functions deploy create-payment-intent --project-ref utjgpehbaarrrhixebil --api-key ${{ secrets.SUPABASE_ACCESS_TOKEN }}
